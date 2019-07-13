@@ -1,12 +1,42 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import moviesData from "./moviesData"
+//import './App.css';
+//console.log(moviesData);
 
-function App() {
-  return (
-    <div className="App">
-          Hello gallery films
-    </div>
-  );
+function deleteMovie(id) {
+  console.log("delete", id);
+  
 }
 
-export default App;
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      movies: moviesData
+    }
+  }
+  
+  render() {
+    console.log(this);
+    const {movies} = this.state
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-9">
+            {movies.map((film) => {
+              return (
+              <div>
+                <p>{film.title}</p>
+                <p>{film.vote_average}</p>
+                <button type='button' onClick={deleteMovie(film.id)}>Delete</button>
+              </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
