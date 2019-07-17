@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,AAAA,CAAC,CAAC;EACD,MAAM,EAAE,CAAC;EACT,OAAO,EAAE,CAAC;EACV,UAAU,EAAE,UAAU;CAAG;;AAGxB,AAAD,aAAS,CAAC;EACT,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;CAAG",
+    "sources": [
+        "app.sass",
+        "_interface.sass"
+    ],
+    "names": [],
+    "file": "app.css"
+}

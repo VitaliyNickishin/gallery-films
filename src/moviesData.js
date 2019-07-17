@@ -6,10 +6,10 @@ const moviesData = [
   vote_average: 8.5,
   title: "Avangers: Infinity War",
   popularity: 160.36938,
-  poster_path: "",
+  poster_path: "../components/images/1.jpeg",
   original_language: "en",
   original_title: "Avangers: Infinity War",
-  backdrop_path: "/",
+  backdrop_path: "/images/1.jpeg",
   adult: false,
   overview:
   "As the Avangers and their allies have continued to protect the world from threats too large for any one hero to",
