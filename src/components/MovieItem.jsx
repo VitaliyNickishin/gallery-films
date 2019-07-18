@@ -2,8 +2,8 @@ import React from 'react'
 //import img1 from "../images/1.jpeg"
 
 const MovieItem = (props) => {
- console.log(props);
- const {item, deleteFilm} = props;
+ //console.log(props);
+ const {item, deleteFilm, addFilmToWillWatch} = props;
  return (
   <div className="card">
    <img 
@@ -20,6 +20,10 @@ const MovieItem = (props) => {
      <button 
       className="btn btn-secondary"
       type="button"
+      //onClick={addFilmToWillWatch.bind(null, item)}
+      onClick={() => {
+       addFilmToWillWatch(item);
+      }}
      >
       Will Watch
      </button>

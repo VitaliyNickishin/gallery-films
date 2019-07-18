@@ -12,9 +12,7 @@ export default class App extends Component {
 
     this.state = {
       movies: moviesData,
-      moviesWillWatch: [
-        {title: 2, vote_average: 11}
-      ]
+      moviesWillWatch: []
     };
   }
 
@@ -24,13 +22,22 @@ export default class App extends Component {
     const updateMovies = this.state.movies.filter(films => {
       return films.id !== idid;
     });
-    console.log(updateMovies);
+    //console.log(updateMovies);
     //this.state.movies = updateMovies;
     this.setState({
       movies: updateMovies
     });
   }
   
+  addMovieToWillWatch = amtww => {
+    //console.log(amtww);
+    const updateMoviesWillWatch = [...this.state.moviesWillWatch, amtww]
+    //updateMoviesWillWatch.push(amtww);
+    
+    this.setState({
+      moviesWillWatch: updateMoviesWillWatch
+    });
+  }
   
   render() {
     //console.log(this);
@@ -47,6 +54,7 @@ export default class App extends Component {
                   <MovieItem 
                     item={film} 
                     deleteFilm={this.deleteMovie}
+                    addFilmToWillWatch={this.addMovieToWillWatch}
                   />
                 </div>
               );
