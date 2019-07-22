@@ -10,8 +10,22 @@ export default class MovieItem extends Component {
     }
   }
   
+  handleClickWatch = () => {
+    this.setState({
+        willWatch: !this.state.willWatch
+      });
+    if (this.state.willWatch) {
+      this.props.deleteFilmFromWillWatch(this.props.item.id);
+    } else {
+    this.props.addFilmToWillWatch(this.props.item);
+    }
+  };
+
   render() {
-    const {item, deleteFilm, addFilmToWillWatch} = this.props;
+    const {
+      item, 
+      deleteFilm
+    } = this.props;
     return (
       <div className="card">
       <img 
@@ -29,12 +43,7 @@ export default class MovieItem extends Component {
           className={`btn ${this.state.willWatch ? "btn-success" : "btn-secondary"}`}
           type="button"
           //onClick={addFilmToWillWatch.bind(null, item)}
-          onClick={() => {
-            this.setState({
-              willWatch: true
-            })
-            addFilmToWillWatch(item);
-          }}
+          onClick={this.handleClickWatch}
         >
           Will Watch
         </button>

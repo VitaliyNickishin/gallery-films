@@ -16,6 +16,7 @@ export default class App extends Component {
     };
   }
 
+   //удаление фильма из списка
   deleteMovie = idid => {
     //console.log("delete", id);
     //console.log("this", this);
@@ -28,7 +29,7 @@ export default class App extends Component {
       movies: updateMovies
     });
   }
-  
+  //добавление фильма в избранное(т.е. в пустой массив)
   addMovieToWillWatch = amtww => {
     //console.log(amtww);
     const updateMoviesWillWatch = [...this.state.moviesWillWatch, amtww]
@@ -36,6 +37,17 @@ export default class App extends Component {
     
     this.setState({
       moviesWillWatch: updateMoviesWillWatch
+    });
+  }
+
+  //удаление фильма из избранного(т.е. из пустого массива)
+  deleteMovieFromWillWatch = dmfww => {
+    const deleteMoviesWillWatch = this.state.moviesWillWatch.filter(
+      kino => kino.id !== dmfww
+    );
+    
+    this.setState({
+      moviesWillWatch: deleteMoviesWillWatch
     });
   }
   
@@ -55,6 +67,7 @@ export default class App extends Component {
                     item={film} 
                     deleteFilm={this.deleteMovie}
                     addFilmToWillWatch={this.addMovieToWillWatch}
+                    deleteFilmFromWillWatch={this.deleteMovieFromWillWatch}
                   />
                 </div>
               );
