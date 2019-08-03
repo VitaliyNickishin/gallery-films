@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './MovieItem.sass'
 //import img1 from "../images/1.jpeg"
 
 
@@ -28,17 +29,18 @@ export default class MovieItem extends Component {
     } = this.props;
     return (
       <div className="card">
-      <img 
-        // src={'https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}'} 
-        src={'{item.backdrop_path || item.poster_path}'} 
-        //={img1} 
-        alt="img" 
-        className="card-img-top"
-      />
+        <div className="card-img">
+          <img 
+            // src={'https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}'} 
+            src={item.img} 
+            //={img1} 
+            alt="img"
+          />
+        </div>
       <div className="card-body">
         <h6 className="card-title">{item.title}</h6>
-        <div className="d-flex justify-content-beetwen align-items-center">
-        <p className="mb-0">Rating: {item.vote_average}</p>
+        {/* <div className="d-flex justify-content-beetwen align-items-center"> */}
+        <p className="">Rating: {item.vote_average}</p>
         <button 
           className={`btn ${this.state.willWatch ? "btn-success" : "btn-secondary"}`}
           type="button"
@@ -47,8 +49,9 @@ export default class MovieItem extends Component {
         >
           Will Watch
         </button>
-        </div>
-        <button 
+        {/* </div> */}
+        <button
+        className="btn btn-danger" 
         type='button' 
         onClick={deleteFilm.bind(null, item.id)}
         >

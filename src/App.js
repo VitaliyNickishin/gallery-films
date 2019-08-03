@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import moviesData from "./moviesData"
 import MovieItem from "./components/MovieItem"
-import "./sass/app.css"
-//import './App.css';
+import './App.sass';
 //console.log(moviesData);
 
 //UI = fn(state, props)
@@ -62,7 +61,7 @@ export default class App extends Component {
             <div className="row">
               {movies.map((film) => {
               return (
-                <div key={film.id} className="col-6 mb-4">
+                <div key={film.id} className="col-lg-4 col-md-6 mb-4">
                   <MovieItem 
                     item={film} 
                     deleteFilm={this.deleteMovie}
