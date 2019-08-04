@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './MovieItem.sass'
+
 //import img1 from "../images/1.jpeg"
 
 

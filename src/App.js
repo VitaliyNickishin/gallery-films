@@ -57,11 +57,11 @@ export default class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-9">
+          <div className="col-lg-9 col-md-9">
             <div className="row">
               {movies.map((film) => {
               return (
-                <div key={film.id} className="col-lg-4 col-md-6 mb-4">
+                <div key={film.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
                   <MovieItem 
                     item={film} 
                     deleteFilm={this.deleteMovie}
@@ -73,16 +73,16 @@ export default class App extends Component {
             })}
             </div>
           </div>
-          <div className="col-3">
+          <div className="col-lg-3 col-md-3 col-sm-12">
             <h4>Will Watch: {moviesWillWatch.length}</h4>
             <ul className="list-group">
                {moviesWillWatch.map(mWw => {
                  return (
                    <li key={mWw.id} className="list-group-item">
-                    <div className="d-flex justify-content-beetwen">
+                    {/* <div className="d-flex justify-content-beetwen"> */}
                       <p>{mWw.title}</p>
                       <p>{mWw.vote_average}</p>
-                    </div>
+                    {/* </div> */}
                    </li>
                  )
                })}
