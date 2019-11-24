@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import moviesData from "./moviesData"
+// import moviesData from "./moviesData"
+import {API_URL, API_KEY_3} from './utils/api'
 import MovieItem from "./components/MovieItem"
 import './App.sass';
 //console.log(moviesData);
@@ -10,9 +11,28 @@ export default class App extends Component {
     super();
 
     this.state = {
-      movies: moviesData,
+      // movies: moviesData,
+      movies: [],
       moviesWillWatch: []
     };
+  }
+
+  componentDidMount() {
+    this.fetchData()
+  }
+
+  fetchData() {
+    fetch(`${API_URL}/discover/movie?api_key=${API_KEY_3}`)
+    .then((response)=>{
+      console.log('then');
+      return response.json()
+    })
+    .then((data)=>{
+      console.log('data', data);
+      this.setState({
+        movies: data.results
+      })
+    })
   }
 
    //удаление фильма из списка
@@ -64,6 +84,7 @@ export default class App extends Component {
                 <div key={film.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
                   <MovieItem 
                     item={film} 
+                    // data={film} 
                     deleteFilm={this.deleteMovie}
                     addFilmToWillWatch={this.addMovieToWillWatch}
                     deleteFilmFromWillWatch={this.deleteMovieFromWillWatch}

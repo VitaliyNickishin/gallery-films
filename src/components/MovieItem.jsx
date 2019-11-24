@@ -25,6 +25,7 @@ export default class MovieItem extends Component {
 
   render() {
     const {
+      data,
       item, 
       deleteFilm
     } = this.props;
@@ -32,8 +33,8 @@ export default class MovieItem extends Component {
       <div className="card">
         <div className="card-img">
           <img 
-            // src={'https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}'} 
-            src={item.img} 
+            src={'https://image.tmdb.org/t/p/w500${data.backdrop_path || data.poster_path}'} 
+            // src={item.img} 
             //={img1} 
             alt="img"
           />
